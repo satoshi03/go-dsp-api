@@ -8,6 +8,7 @@ import (
 	"github.com/mxmCherry/openrtb"
 	"golang.org/x/net/context"
 
+	"github.com/satoshi03/go-dsp-api/common/consts"
 	"github.com/satoshi03/go-dsp-api/common/utils"
 	"github.com/satoshi03/go-dsp-api/fluent"
 )
@@ -46,9 +47,9 @@ func bidHandler(ctx context.Context, w http.ResponseWriter, r *http.Request) {
 }
 
 func sendLog(ctx context.Context, req *openrtb.BidRequest, resp *openrtb.BidResponse) {
-	fluent.Send(ctx, "fluent", "request", makeRequestLog(req, resp))
+	fluent.Send(ctx, consts.CtxFluentKey, "request", makeRequestLog(req, resp))
 	for _, bid := range resp.SeatBid[0].Bid {
-		fluent.Send(ctx, "fluent", "bid", makeBidLog(&bid))
+		fluent.Send(ctx, consts.CtxFluentKey, "bid", makeBidLog(&bid))
 	}
 }
 
