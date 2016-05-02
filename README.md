@@ -1,6 +1,6 @@
 # DSP API Go implementation
 
-Simple DSP(Demand Side Platform) API written in golang.
+Simple DSP(Demand Side Platform) API written in golang compliant with [OpenRTB v2.3](https://github.com/openrtb/OpenRTB/blob/master/OpenRTB-API-Specification-Version-2-3-FINAL.pdf)
 
 # Required middleware 
 
