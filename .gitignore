@@ -29,6 +29,7 @@ _testmain.go
 *.prof
 
 go-dsp-api
+command
 
 tmp
 .idea
