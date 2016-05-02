@@ -59,7 +59,7 @@ $ http GET http://<host>/v1/win/XXXX impid==YYYYYYYY price==100
 If you want to add/modify mock data, please edit data file.
 
 ```
-vim command/data.yml
+$ vim command/data.yml
 ```
 
 # License
