@@ -35,6 +35,95 @@ Run.
 $ ./go-dsp-api
 ```
 
+# End Points
+
+## RTB Request [/v1/bid] POST
+
+Receive RTB request. RTB request must be compliant with [OpenRTB v2.3](https://github.com/openrtb/OpenRTB/blob/master/OpenRTB-API-Specification-Version-2-3-FINAL.pdf)
+
++ Response 200 (application/json)
+  + Headers
+
+  ```
+  x-openrtb-version: 2.3
+  ```
+
+  + Body
+
+  ```
+  {
+      "cur": "JPY", 
+      "id": "IxexyLDIIk", 
+      "seatbid": [
+          {
+              "bid": [
+                  {
+                      "adid": "1234", 
+                      "adm": "<a href=\"http://test.noadnolife.com/v1/click/12345?impid=${AUCTION_IMP_ID}&price=${AUCTION_PRICE}\"><img src=\"http://test.noadnolife.com/img/12345?impid=${AUCTION_IMP_ID}&price=${AUCTION_PRICE}\" width=\"728\" height=\"90\" border=\"0\" alt=\"Advertisement\" /></a>", 
+                      "cid": "1234", 
+                      "crid": "12345", 
+                      "id": "d8aa5114-cd86-4484-9947-b907c8d12daa", 
+                      "impid": "1", 
+                      "iurl": "http://test.noadnolife.com/img/12345.png", 
+                      "nurl": "http://test.noadnolife.com/v1/win/12345?impid=${AUCTION_IMP_ID}&price=${AUCTION_PRICE}", 
+                      "price": 225
+                  }
+              ]
+          }
+      ]
+  }
+  ```
+
++ Response 204 (application/json)
+  + Headers
+
+  ```
+  x-openrtb-version: 2.3
+  ```
+
+## Win Notice [/v1/win/:crid] GET
+
+Receive win notice. In order to track logs, price and impression ID are required.
+
++ Parameters
+  + price (number, required) - Won price of RTB Auction
+  + impid (number, required) - An impression ID of win notice
+
+
++ Response 200 (application/json)
+  + Headers
+
+  ```
+  x-openrtb-version: 2.3
+  ```
+
+  + Body
+
+  ```
+  { "message": "ok"}
+  ```
+
+## Click /v1/click/:crid GET
+
+ Receive click action log. In order to track logs, price and impression ID are required.
+
++ Parameters
+  + price (number, required) - Won price of RTB Auction
+  + impid (number, required) - An impression ID of win notice
+
++ Response 200 (application/json)
+  + Headers
+
+  ```
+  x-openrtb-version: 2.3
+  ```
+
+  + Body
+
+  ```
+  { "message": "ok"}
+  ```
+
 # Run with mock data
 
 Put mock data to Redis.
