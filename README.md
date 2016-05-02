@@ -4,8 +4,8 @@ Simple DSP(Demand Side Platform) API written in golang.
 
 # Required middleware 
 
-Redis
-fluentd
+- [Redis](http://redis.io/download)
+- [fluentd](http://www.fluentd.org/download)
 
 # How to setup
 
