@@ -1,0 +1,35 @@
+index:
+    banner:
+        - campaign_id: '1234'
+          creative_id: '12345'
+          price: 200.0
+          ad_id: '1234'
+          nurl: 'http://test.noadnolife.com/v1/win/12345?impid=${AUCTION_IMP_ID}&price=${AUCTION_PRICE}'
+          iurl: 'http://test.noadnolife.com/img/12345.png'
+          adm: '<a href="http://test.noadnolife.com/v1/click/12345?impid=${AUCTION_IMP_ID}&price=${AUCTION_PRICE}"><img src="http://test.noadnolife.com/img/12345?impid=${AUCTION_IMP_ID}&price=${AUCTION_PRICE}" width="728" height="90" border="0" alt="Advertisement" /></a>'
+          pecpm: 250.0
+        - campaign_id: '1235'
+          creative_id: '12346'
+          price: 155.0
+          ad_id: '1235'
+          nurl: 'http://test.noadnolife.com/v1/win/12346?price=${AUCTION_PRICE}'
+          iurl: 'http://test.noadnolife.com/img/12346.png'
+          adm: '<a href="http://test.noadnolife.com/v1/click/12346?impid=${AUCTION_IMP_ID}&price=${AUCTION_PRICE}"><img src="http://test.noadnolife.com/img/12346?impid=${AUCTION_IMP_ID}&price=${AUCTION_PRICE}" width="728" height="90" border="0" alt="Advertisement" /></a>'
+          pecpm: 240.0
+    banner_rect:
+        - campaign_id: '1237'
+          creative_id: '12347'
+          price: 200.0
+          ad_id: '1237'
+          nurl: 'http://test.noadnolife.com/v1/win/12347?impid=${AUCTION_IMP_ID}&price=${AUCTION_PRICE}'
+          iurl: 'http://test.noadnolife.com/img/12347.png'
+          adm: '<a href="http://test.noadnolife.com/v1/click/12347?impid=${AUCTION_IMP_ID}&price=${AUCTION_PRICE}"><img src="http://test.noadnolife.com/img/12347?impid=${AUCTION_IMP_ID}&price=${AUCTION_PRICE}" width="250" height="300" border="0" alt="Advertisement" /></a>'
+          pecpm: 250.0
+        - campaign_id: '1238'
+          creative_id: '12348'
+          price: 155.0
+          ad_id: '1238'
+          nurl: 'http://test.noadnolife.com/v1/win/12348?price=${AUCTION_PRICE}'
+          iurl: 'http://test.noadnolife.com/img/12348.png'
+          adm: '<a href="http://test.noadnolife.com/v1/click/12346?impid=${AUCTION_IMP_ID}&price=${AUCTION_PRICE}"><img src="http://test.noadnolife.com/img/12348impid=${AUCTION_IMP_ID}&price=${AUCTION_PRICE}" width="250" height="300" border="0" alt="Advertisement" /></a>'
+          pecpm: 240.0
