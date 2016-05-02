@@ -18,7 +18,7 @@ $ git clone git@github.com:satoshi03/go-dsp-api.git
 Install go libs and compile.
 
 ```
-$ go get -v -d
+$ go get
 $ go build
 ```
 
