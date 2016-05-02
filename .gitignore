@@ -32,3 +32,5 @@ go-dsp-api
 
 tmp
 .idea
+
+config.yml

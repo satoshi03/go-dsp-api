@@ -68,7 +68,7 @@ func GetIndex(ctx context.Context, imp *openrtb.Imp) (Index, error) {
 	}
 
 	// Get value from redis
-	cli := redis.GetConn(ctx, "redisdb")
+	cli := redis.GetConn(ctx, consts.CtxRedisKey)
 	value, _ := redis.GetCmd(cli, key)
 	var out Index
 	err = msgpack.Unmarshal([]byte(value), &out)

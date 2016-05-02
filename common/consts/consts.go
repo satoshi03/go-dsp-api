@@ -1,6 +1,9 @@
 package consts
 
 const (
+	CtxRedisKey  = `redis`
+	CtxFluentKey = `fluent`
+
 	// Currency type for bid price
 	DefaultBidCur = `JPY`
 
