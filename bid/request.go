@@ -33,6 +33,15 @@ func parseRequest(r *http.Request) (*Request, error) {
 }
 
 func (r *Request) validate() error {
+	// Required attributes must be exsit
+	if r.BidRequest.ID == "" {
+		return errors.InvalidRequestParamError{"BidRequest.ID", ""}
+	}
+	if r.BidRequest.Imp == nil {
+		return errors.InvalidRequestParamError{"BidRequest.Imp", ""}
+	}
+
+	// Currency type is valid
 	if !r.validCurrency() {
 		return errors.InvalidCurError
 	}

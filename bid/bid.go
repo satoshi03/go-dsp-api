@@ -37,18 +37,33 @@ func getAd(ctx context.Context, imp *openrtb.Imp) (data.Ad, bool) {
 	}
 
 	// Find valid ad having max score(=ecpm) in index
+	var validAds []data.Ad
 	for i := range index {
 		if err := validateAd(imp, &index[i]); err == nil {
-			// Valid ad was found
-			return index[i], true
+			validAds = append(validAds, index[i])
 		} else {
 			// For debug
 			log.Println(err)
 		}
 	}
+	// Choice high revenue ad in valid ads
+	return choiceBestAd(validAds)
+}
 
-	// No valid ad was found
-	return data.Ad{}, false
+func choiceBestAd(va []data.Ad) (data.Ad, bool) {
+	maxBidPrice := 0.0
+	index := -1
+	for i := range va {
+		bp := va[i].CalcBidPrice()
+		if bp > maxBidPrice {
+			maxBidPrice = bp
+			index = i
+		}
+	}
+	if index == -1 {
+		return data.Ad{}, false
+	}
+	return va[index], true
 }
 
 func validateImp(imp *openrtb.Imp) error {
