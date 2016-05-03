@@ -14,6 +14,10 @@ import (
 func bid(ctx context.Context, br *openrtb.BidRequest) []*data.Ad {
 	var selected []*data.Ad
 	for _, imp := range br.Imp {
+		// If imp is invalid, skip it
+		if err := validateImp(&imp); err != nil {
+			continue
+		}
 		ad, ok := getAd(ctx, &imp)
 		if ok {
 			ad.ImpID = imp.ID
@@ -34,7 +38,7 @@ func getAd(ctx context.Context, imp *openrtb.Imp) (data.Ad, bool) {
 
 	// Find valid ad having max score(=ecpm) in index
 	for i := range index {
-		if err := validate(imp, &index[i]); err == nil {
+		if err := validateAd(imp, &index[i]); err == nil {
 			// Valid ad was found
 			return index[i], true
 		} else {
@@ -47,7 +51,7 @@ func getAd(ctx context.Context, imp *openrtb.Imp) (data.Ad, bool) {
 	return data.Ad{}, false
 }
 
-func validate(imp *openrtb.Imp, ad *data.Ad) error {
+func validateImp(imp *openrtb.Imp) error {
 	// Native Ad is not supported
 	if imp.Native != nil {
 		return errors.NoSupportError{"native"}
@@ -60,10 +64,13 @@ func validate(imp *openrtb.Imp, ad *data.Ad) error {
 	if imp.BidFloorCur != "" && imp.BidFloorCur != consts.DefaultBidCur {
 		return errors.InvalidCurError
 	}
+	return nil
+}
+
+func validateAd(imp *openrtb.Imp, ad *data.Ad) error {
 	// Check bid price greater than bid floor price
 	if ad.CalcBidPrice() <= imp.BidFloor {
 		return errors.LowPriceError
 	}
-
 	return nil
 }
