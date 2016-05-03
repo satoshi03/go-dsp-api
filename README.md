@@ -100,10 +100,10 @@ Receive win notice. In order to track logs, price and impression ID are required
   + Body
 
   ```
-  { "message": "ok"}
+  { "message": "ok" }
   ```
 
-## Click /v1/click/:crid GET
+## Click [/v1/click/:crid] GET
 
  Receive click action log. In order to track logs, price and impression ID are required.
 
@@ -121,7 +121,7 @@ Receive win notice. In order to track logs, price and impression ID are required
   + Body
 
   ```
-  { "message": "ok"}
+  { "message": "ok" }
   ```
 
 # Run with mock data
