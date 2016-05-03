@@ -9,6 +9,8 @@ Simple DSP(Demand Side Platform) API written in golang compliant with [OpenRTB v
 
 # How to setup
 
+If required midllewares were not installed in your machine, please set up and run at first.
+
 Copy source to your local dierctory.
 
 ```
