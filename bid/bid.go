@@ -51,12 +51,12 @@ func getAd(ctx context.Context, imp *openrtb.Imp) (data.Ad, bool) {
 }
 
 func choiceBestAd(va []data.Ad) (data.Ad, bool) {
-	maxBidPrice := 0.0
+	var revenue, maxRevenue float64
 	index := -1
 	for i := range va {
-		bp := va[i].CalcBidPrice()
-		if bp > maxBidPrice {
-			maxBidPrice = bp
+		revenue = va[i].PeCPM - va[i].CalcBidPrice()
+		if revenue > maxRevenue {
+			maxRevenue = revenue
 			index = i
 		}
 	}
