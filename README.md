@@ -9,6 +9,8 @@ Simple DSP(Demand Side Platform) API written in golang compliant with [OpenRTB v
 
 # How to setup
 
+If required midllewares were not installed in your machine, please set up and run at first.
+
 Copy source to your local dierctory.
 
 ```
@@ -100,10 +102,10 @@ Receive win notice. In order to track logs, price and impression ID are required
   + Body
 
   ```
-  { "message": "ok"}
+  { "message": "ok" }
   ```
 
-## Click /v1/click/:crid GET
+## Click [/v1/click/:crid] GET
 
  Receive click action log. In order to track logs, price and impression ID are required.
 
@@ -121,7 +123,7 @@ Receive win notice. In order to track logs, price and impression ID are required
   + Body
 
   ```
-  { "message": "ok"}
+  { "message": "ok" }
   ```
 
 # Run with mock data
